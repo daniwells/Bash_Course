@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+# echo $#
+
+# echo $1
+# echo $2
+# echo $3
+
+# help ls
+
+message="É necessário fornecer um comando válido!"
+
+[[ $# -ne 1 ]] && echo $message && exit 1
+
+help $1 &> /dev/null
+
+[[ $? -eq 0  ]] && echo "É builtin!" || echo "Não é builtin!"
+
+exit 0

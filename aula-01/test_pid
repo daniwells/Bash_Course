@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+echo "Pid da sessaõ do script: $$"
+
+exit 0
