@@ -1,0 +1,89 @@
+#!/usr/bin/env bash
+# -------------------------------------------------------------
+# Script	:
+# Descrição	:
+# Versão	: 1.0
+# Autor		: Daniel Lima <daniellimafreita@gmail.com>
+# Data		: 29/01/25
+# Licença	: GNU/GPL v3.0
+# -------------------------------------------------------------
+# Uso:
+# -------------------------------------------------------------
+
+# 1 - Sintaxe geral
+
+for produto in leite pão margarina café; do echo $produto; done
+
+compras=(leite maionese margarina maçã)
+compras2="leite maionese margarina maçã"
+
+for produto in ${compras[*]}; do echo $produto; done
+for produto in $compras2; do echo $produto; done
+
+# 2 - Expressão aritmética como 'in LISTA'
+
+for (( n = 1; n<=10; n++ )); do
+ echo $n
+done
+
+for n in {1..10..2}; do
+ echo $n
+done
+
+for n in {a..j}{a..j}; do
+ echo $n
+done
+
+for n in {0..9}{0..9}; do
+ echo $n
+done
+
+# 3 - Percorrendo string
+
+compras="pão,macarrão,leite,margarina"
+
+  # EVITAR ALTERAÇÃO NO IFS
+
+  # Não faça isso
+echo "$IFS"
+IFS=","
+for c in $compras; do
+ echo $c
+done
+
+  # Faça isso
+compras='pão\nmacarrão\nleite\nmargarina'
+
+# 4 - Percorrendo elementos de um array
+
+alunos=(joõo rodrigo "marcos da silva")
+
+for nome in "${alunos[*]}"; do
+ echo $nome
+done
+
+  # Não precisa de aspas, pois 'marcos da...' já e considerado como um array próprio, o que muda para o for anterior é
+  #  por conta do IFS
+for i in ${!alunos[*]}; do
+ echo "aluno $i --> ${alunos[$i]}"
+done
+
+# 5 - Percorrendo nomes de arquivos
+
+for n in {1..5}; do
+ >> arquivo$n
+done
+
+for f in arquivo*; do
+ mv $f $f.txt
+done
+
+# 6 -  Controlando a execução do loop 'for'
+
+for n in {1..10}; do
+ [[ $n -gt 5 ]] && break || echo $n
+done
+
+for n in {1..10}; do
+ [[ $n -lt 6 ]] && continue || echo $n
+done

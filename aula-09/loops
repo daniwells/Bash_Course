@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+# -------------------------------------------------------------
+# Script	:
+# Descrição	:
+# Versão	: 1.0
+# Autor		: Daniel Lima <daniellimafreita@gmail.com>
+# Data		: 29/01/25
+# Licença	: GNU/GPL v3.0
+# -------------------------------------------------------------
+# Uso:
+# -------------------------------------------------------------
+
+# WHILE 
+n=0
+while [[ $n -lt 5  ]]; do
+ echo $n
+ (( n++ ))
+done
+
+# UNTIL
+until [[ $n -eq 5 ]]; do
+ echo $n
+ (( n++ ))
+done
+
+# SELECT
+
+PS3="Escolja a sua fruta: "
+select fruta in banana laranja abacate; do
+ echo $fruta
+ break
+done
+
+
+exit 0

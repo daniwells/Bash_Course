@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# -------------------------------------------------------------
+# Script	:
+# Descrição	:
+# Versão	: 1.0
+# Autor		: Daniel Lima <daniellimafreita@gmail.com>
+# Data		: 30/01/25
+# Licença	: GNU/GPL v3.0
+# -------------------------------------------------------------
+# Uso:
+# -------------------------------------------------------------
+
+oi(){
+ echo "Oi, eu sou $1!"
+ return 0
+}
+
+case $1 in
+ 1) nome=Daniel;;
+ 2) nome=Mario;;
+ 3) nome=Juliano;;
+ *) nome=Corinthians;;
+esac
+
+oi $nome
+
+exit 0

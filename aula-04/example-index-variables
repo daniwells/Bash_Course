@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+# -------------------------------------------------------------
+# Script	:
+# Descrição	:
+# Versão	: 1.0
+# Autor		: Daniel Lima <daniellimafreita@gmail.com>
+# Data		: 27/01/25
+# Licença	: GNU/GPL v3.0
+# -------------------------------------------------------------
+# Uso:
+# -------------------------------------------------------------
+
+echo "\
+ Work example with index arrays
+"
+
+fruits=("banana" "orange" "avocado" "lemon" "cherry" "pineapple")
+colors=("yellow" "yellow" "green" "green" "red" "yellow")
+
+read -p "Enter a number between 0 to 5: " number
+
+[[ ! $number =~ ^[0-5]$ ]]\
+	&& echo -e "\n You must to type a number between 0 to 5! Outting...\n"\
+	&& exit 1
+
+echo "
+You choose ${fruits[$numer]}, that is a ${colors[$number]} fruit.
+"
+
+exit 0
+

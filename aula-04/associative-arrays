@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+# -------------------------------------------------------------
+# Script	:
+# Descrição	:
+# Versão	: 1.0
+# Autor		: Daniel Lima <daniellimafreita@gmail.com>
+# Data		: 27/01/25
+# Licença	: GNU/GPL v3.0
+# -------------------------------------------------------------
+# Uso:
+# -------------------------------------------------------------
+
+declare -A aluno
+declare -A nota
+
+aluno[joao]="João"
+aluno[jose]="José"
+aluno[maria]="Maria"
+aluno[sofia]="Sofia"
+aluno[fatima]="Fátima"
+aluno[antonio]="Antônio"
+
+nota[joao]=10
+nota[jose]=9
+nota[maria]=10
+nota[sofia]=9
+nota[fatima]=8
+nota[antonio]=7
+
+echo "
+ Os indentificadores dos alunos são:
+ ${!aluno[*]}
+
+ E os seus nomes são:
+ ${aluno[*]}
+"
+
+exit 0
+

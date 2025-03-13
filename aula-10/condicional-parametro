@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# -------------------------------------------------------------
+# Script	:
+# Descrição	:
+# Versão	: 1.0
+# Autor		: Daniel Lima <daniellimafreita@gmail.com>
+# Data		: 30/01/25
+# Licença	: GNU/GPL v3.0
+# -------------------------------------------------------------
+# Uso:
+# -------------------------------------------------------------
+
+case $1 in
+ banana) echo "$1 é uma fruta amarela"   ;;
+ abacate) echo "$1 é uma fruta verde"    ;;
+ morango) echo "$1 é uma fruta vermelha" ;;
+ *) echo "Não sei a cor da fruta $1"     ;;
+esac
+
+exit 0

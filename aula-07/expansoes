@@ -1,0 +1,129 @@
+#!/usr/bin/env bash
+# -------------------------------------------------------------
+# Script	:
+# Descrição	:
+# Versão	: 1.0
+# Autor		: Daniel Lima <daniellimafreita@gmail.com>
+# Data		: 28/01/25
+# Licença	: GNU/GPL v3.0
+# -------------------------------------------------------------
+# Uso:
+# -------------------------------------------------------------
+
+# O que são expansões?
+# Expansões são um conjunto de operações que transformam ou modificam um comando ou expressõa, gerando um novo valor.
+
+echo aula {1..5}
+echo $(( 2+2 ))
+
+# Expansão de caminhos
+ls area*
+
+# Expansão de nomes de arquivos
+  # ~ : Parta pessoal do usuário
+  # - : Pasta visitada por último
+  # * : Padrão de zero ou mais caracteres (Menos o ponto no início do nome de arquivos)
+  # ? : Um único caractere (Menos o ponto no início do nome de arquivos)
+  # [ ]: Lista de caracteres válidos na posição que ela aparece
+
+echo e*
+echo .t*
+echo *anana
+echo .*este
+echo *.???
+echo *o????
+echo a[br]*
+echo ???[ma]*
+
+# Expansão de chaves
+  # {inicio..fim} : Lista de strings a serem geradas
+  # {str1, str2,...,strN} : LIsta de strings
+
+echo teste{1..5}
+touch {a,b,c}001.txt
+touch {d..h}001.txt
+
+# Quebras de palavras e separadores de campo
+  # IFS
+  # <espaço>, <tabulação> e <nova linha>
+
+# Remoção de aspas
+ 
+fruta=laranja
+echo "$fruta"
+echo $fruta\ de\ escape
+
+# Expansão de parâmetros
+
+  # 1 - Velhas conhecidas
+echo 'string 1\nstring 2 *'
+echo "!string 1\nstring 2 *"
+echo string 1\nstring 2 *
+echo '!string 1\nstring 2 *'
+echo $'string 1\nstring 2'
+echo $"string 1\nstring 2"
+
+echo ${#alunos[@]}
+echo ${#alunos}
+echo $alunos
+
+
+alunos=(Daniel Maria José Fernando)
+echo $!alunos
+echo ${#alunos}
+echo $#alunos
+
+  # 2 - Substrings
+ms=colocacaobemfeita
+echo ${ms:5}
+echo $ms{ms:7}
+echo ${ms: -7}
+echo ${ms: -5}
+echo ${ms: -5:3}
+echo ${ms: -5:-3}
+
+  # 3 - Testando variáveis
+fauna=(macaco elefante leão jabuti)
+
+echo ${fauna:-elefante}
+echo ${fauna:=elefante}
+echo ${fauna:+elefante}
+echo ${fauna:+"A variável já está definida!"}
+echo ${fauna:?"'flora' não está definida!"}
+echo $?
+
+ # 4 - Maiúsculas e minúsculas
+echo ${fauna^}
+echo ${fauna^^}
+echo ${fauna,}
+echo ${fauna,,}
+
+  # 5 - Aparando Strings
+frutas="banana laranja abacate"
+
+echo ${frutas#b}
+echo ${frutas#*b}
+echo ${frutas##*b}
+echo ${frutas#* }
+echo ${frutas% *}
+echo ${frutas%% *}
+arquivo="http://teste.com/exemplo/arquivo.zip"
+echo ${arquivo##*/}
+echo ${arquivo##/*}
+
+  # 6 - Busca e substituição
+mensagem="Use o Linux e seja feliz!"
+echo ${mensagem/Linux/MacOS}
+echo ${mensagem/L*/MacOS}
+echo ${mensagem/L* /MacOS}
+echo ${mensagem/L*  /MacOS}
+echo ${mensagem/L*x /MacOS }
+echo ${mensagem//s/x}
+
+
+# Parâmetros especiais
+# Expansões aritméticas
+# Substituição de comandos
+# Substuição de processos
+# Expansões de parâmetros
+

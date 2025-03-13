@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# -------------------------------------------------------------
+# Script	: Sintaxe de Variáveis indexadas
+# Descrição	:  
+# Versão	: 1.0
+# Autor		: Daniel Lima <daniellimafreita@gmail.com>
+# Data		: 27/01/25
+# Licença	: GNU/GPL v3.0
+# -------------------------------------------------------------
+# Uso:./index_variables ou path/index_variables
+# -------------------------------------------------------------
+
+fruta=("banana" "maçã" "laranja" "abacate")
+
+echo $fruta
+echo "${fruta}aaaaaaaaaaaaa"
+echo "Todos os valores:  ${fruta[@]}" # Retorna todos os valores. Você também pode usar ${fruta[*]}
+echo "Quantidade de valores: ${#fruta[@]}" # Retorna a quantidade de valores
+echo "Retornar todos os índices: ${!fruta[@]}" # Retorna os índices
+

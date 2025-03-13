@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+# -------------------------------------------------------------
+# Script	:
+# Descrição	:
+# Versão	: 1.0
+# Autor		: Daniel Lima <daniellimafreita@gmail.com>
+# Data		: 29/01/25
+# Licença	: GNU/GPL v3.0
+# -------------------------------------------------------------
+# Uso:
+# -------------------------------------------------------------
+
+alunos=(João Maria "Luis Carlos")
+
+for aluno in ${alunos[*]}; do
+ echo $aluno
+done
+
+echo ""
+
+for aluno in "${alunos[@]}"; do
+ echo $aluno
+done
+
+echo ""
+
+for aluno in "${alunos[*]}"; do
+ echo $aluno
+done
+
+echo ""
+
+IFS=$'\n'
+
+for aluno in ${alunos[*]}; do
+ echo $aluno
+done

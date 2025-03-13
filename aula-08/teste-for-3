@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# -------------------------------------------------------------
+# Script	:
+# Descrição	:
+# Versão	: 1.0
+# Autor		: Daniel Lima <daniellimafreita@gmail.com>
+# Data		: 29/01/25
+# Licença	: GNU/GPL v3.0
+# -------------------------------------------------------------
+# Uso:
+# -------------------------------------------------------------
+
+for n in {1..10}; do
+ [[ $n -gt 5 ]] && break || echo $n
+done
+
+for n in {1..10}; do
+ [[ $n -lt 6  ]] && continue || echo $n
+done
+
+exit 0

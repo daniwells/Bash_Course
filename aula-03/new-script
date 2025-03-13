@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+# Opções
+
+editor="nano"
+
+# Variáveis
+
+hoje=$( date +'%d/%m/%y' )
+
+header="#!/usr/bin/env bash
+# ----------------------------------
+# Script	:
+# Descrição	:
+# Versão	:
+# Autor		: Daniel Lima <daniellimafreita@gmail.com>
+# Data		: $hoje
+# Licença	: GNU/GPL v3.0
+# ----------------------------------
+# Uso:
+# ----------------------------------
+"
+
+# Testar se o usuário passou o número correto de argumentos
+msg="Erro! O arquivo deve possuir *um* nome!"
+[[ $# -ne 1 ]] && echo $msg && exit 1
+
+# Testar se o arquivo já existe
+
+msg="Erro! Este nome de arquivo já existe neste diretório"
+[[ -f $1 ]] && echo $msg && exit 1
+
+echo "$header" > $1
+
+chmod +x $1
+
+$editor $1
+
+exit 0

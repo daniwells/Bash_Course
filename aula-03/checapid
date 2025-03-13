@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# --------------------------------------------------------------------
+# Script	: checapid
+# Descrição	: checar PID do código no terminal e do script
+# Versão	: 1.0
+# Autor		: Daniel Lima <daniellimafreita@gmail.com>
+# Data		: 21/01/25
+# Licença	: GNU/GPL v3.0
+# --------------------------------------------------------------------
+# Uso: /path/checapid ou ./checapid
+# --------------------------------------------------------------------
+
+clear
+
+sep= "-------------------------------------------------------------------"
+
+echo "$sep
+COMPARANDO PID DAS SESSÕES DO BASH NO SCRIPT E NO TERMINAL
+
+PID da sessão do bash do script  : $$
+PID da sessão do bash no terminal: $PPID 
+
+ps -p $$,$PPID -o pid=,user=,tty=,args=
+$sep
+"
+
+exit 0

@@ -1,0 +1,80 @@
+#!/usr/bin/env bash
+# -------------------------------------------------------------
+# Script	:
+# Descrição	:
+# Versão	: 1.0
+# Autor		: Daniel Lima <daniellimafreita@gmail.com>
+# Data		: 30/01/25
+# Licença	: GNU/GPL v3.0
+# -------------------------------------------------------------
+# Uso:
+# -------------------------------------------------------------
+
+if ls test*; then
+  echo "Status $? - Verdadeiro"
+elif ls txt*; then
+  echo  "Só achei o(s) arquivo(s) test*"
+else
+  echo "Status $? - Falso"
+fi
+
+echo "--------------------"
+
+padrao=text*
+
+if ls $padrao &> /dev/null; then
+ echo "Status $? -  Verdadeiro"
+ echo "O nome do arquivo encontrado é: $padrao"
+else
+ echo "Status $? - Falso"
+ echo "Não encontrei o padrão $padrao"
+fi
+
+echo "--------------------"
+
+fruta=laranja
+
+if [[ $fruta = banana  ]]; then
+ echo "Status $? -  Verdadeiro"
+ echo "O nome do arquivo encontrado é banana"
+else
+ echo "Status $? - Falso"
+ echo "O nome do arquivo encontrado não é banana"
+fi
+
+echo "--------------------"
+
+if ((2-1)); then
+ echo "Status $? - Verdadeiro"
+else
+ echo "Status $? - Falso"
+fi
+
+echo "--------------------"
+
+fruta="banana"
+
+case $fruta in
+ banana) echo "$fruta é amarela"         ;;
+ abacate) echo "$fruta é verde"          ;;
+ morango) echo "$fruta é vermelha"       ;;
+ *) echo "Não sei a cor da frunta $fruta";;
+esac
+
+case $fruta in
+ banana|laranja) echo "$fruta é amarela"  ;;
+ abacate|uva) echo "$fruta é verde"       ;;
+ morango|pitanga) echo "$fruta é vermelha";;
+ *) echo "Não sei a cor da frunta $fruta" ;;
+esac
+
+case $fruta in
+ ba*|la*) echo "$fruta é amarela"         ;;
+ abacate|uv[ao]) echo "$fruta é verde"    ;;   
+ [Mm]orango|pitanga) echo "$fruta é vermelha";;
+ *) echo "Não sei a cor da frunta $fruta" ;;
+esa
+
+echo "--------------------"
+
+exit 0

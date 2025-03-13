@@ -1,0 +1,54 @@
+#!/usr/bin/env bash
+# -------------------------------------------------------------
+# Script	:
+# Descrição	:
+# Versão	: 1.0
+# Autor		: Daniel Lima <daniellimafreita@gmail.com>
+# Data		: 30/01/25
+# Licença	: GNU/GPL v3.0
+# -------------------------------------------------------------
+# Uso:
+# -------------------------------------------------------------
+
+# function NOME {
+#   COMANDOS
+#}
+
+# NOME() {
+#   COMANDOS
+#}
+
+# NOME() {COMANDO1; COMANDO2; ... COMANDON;}
+
+nome="Daniel"
+myfunc(){
+ local nome="Marcos"
+ echo "OPAAAAAA, eu sou $nome!"
+}
+
+myfunc
+
+echo "------------"
+
+myfuncparam(){
+ echo "Opa, eu sou o $1!"
+}
+
+myfuncparam Daniel
+
+echo "------------"
+
+calc(){
+ return $((2+2))
+}
+
+calc
+echo $?
+
+echo "------------"
+
+calc2(){
+ echo ${calc2[0]}
+}
+
+exit 0
